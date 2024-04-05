@@ -18,7 +18,6 @@ export const verifyToken = async (req: express.Request, res:any ,  next: express
         res.tokenData = jwt.verify(authorizationToken, process.env.SECRET as  Secret);
         next();
         
-
     } catch (error){
         return res.status(401).json(
             new CustomResponse(401, "Inavalid Token")
