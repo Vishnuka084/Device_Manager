@@ -1,4 +1,4 @@
-import { CustomResponse } from "dtos/CustomerResponse"
+import { CustomResponse } from "../dtos/CustomerResponse"
 import UserModel from "../models/UserModel";
 import { UserInterface } from "type/SchemaTypes"
 import bcrypt from "bcryptjs"
