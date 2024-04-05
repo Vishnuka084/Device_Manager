@@ -5,9 +5,9 @@ import {Schema} from "mongoose";
 let deviceSchema = 
     new mongoose.Schema<SchemaTypes.deviceInterface>({
     serialNo:{type:String, required: true},
-    Type:{type:String, required: true},
-    Image:{type:String, required: true},
-    Status:{type:String, required: true},
+    type:{type:String, required: true},
+    image:{type:String, required: true},
+    status:{type:String, required: true},
 
 })
 
