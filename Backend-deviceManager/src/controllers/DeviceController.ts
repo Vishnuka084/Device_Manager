@@ -113,9 +113,25 @@ export const deleteDevice = async(req: any,  res:any) =>{
 }
 
 export const viewDevice = async(req: any, res:any)=>{
-    
+    try {
+
+
+       
+    }catch (error){
+        res.status(500).send(
+            new CustomResponse(500,`Error : ${error}`)
+        )
+    }
 }
 
 export const viewAllDevice = async(req: any, res:any)=>{
-    
+    try {
+
+
+    }catch (error){
+        res.status(500).send(
+            new CustomResponse(500,`Error : ${error}`)
+        )
+    }
+
 }
