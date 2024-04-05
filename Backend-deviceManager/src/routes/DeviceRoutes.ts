@@ -5,7 +5,7 @@ import {upload, uploadPic} from "../middlewares/imageUpLoader"
 
 let router = express.Router();
 
-router.post('/save',VerifyToken.verifyToken, DeviceController.createDevice) //device /save
+router.post('/save',VerifyToken.verifyToken,uploadPic.single('file'), DeviceController.createDevice) //device /save
 router.put('/update',VerifyToken.verifyToken,uploadPic.single('file'), DeviceController.updateDevice) //device /update
 router.post('/delete/:deviceId',VerifyToken.verifyToken, DeviceController.deleteDevice) //device /delete
 router.get('/get/device',VerifyToken.verifyToken, DeviceController.viewDevice) //device /get/location?title= 
