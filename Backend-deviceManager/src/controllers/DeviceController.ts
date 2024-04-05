@@ -77,8 +77,39 @@ export const updateDevice = async(req: any, res:any)=>{
     }
 
 }
-export const deleteDevice = async(req: any,  res:any) =>{
 
+export const deleteDevice = async(req: any,  res:any) =>{
+    try {
+
+        let device_by_id : deviceInterface | null = await DeviceModel.findOne({_id:req.params.deviceId});
+
+        if (device_by_id){
+
+            await DeviceModel.deleteOne({_id:req.params.deviceId})
+                .then( success => {
+
+                    res.status(200).send(
+                        new CustomResponse(200, "Device delete successfully")
+                    );
+
+                })
+                .catch( error => {
+                    res.status(500).send(
+                        new CustomResponse(500, `Something went wrong : ${error}`)
+                    );
+                })
+
+        }else {
+            res.status(404).send(
+                new CustomResponse(404,`Device not found!!!`)
+            )
+        }
+
+    }catch (error){
+        res.status(500).send(
+            new CustomResponse(500,`Error : ${error}`)
+        )
+    }
 }
 
 export const viewDevice = async(req: any, res:any)=>{

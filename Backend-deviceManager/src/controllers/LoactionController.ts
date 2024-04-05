@@ -85,11 +85,11 @@ export const deleteLocation = async(req: any,  res:any) =>{
 
     try {
 
-        let location_by_id : LocationInterface | null = await LocationModel.findOne({_id:req.params.noteId});
+        let location_by_id : LocationInterface | null = await LocationModel.findOne({_id:req.params.locationId});
 
         if (location_by_id){
 
-            await LocationModel.deleteOne({_id:req.params.noteId})
+            await LocationModel.deleteOne({_id:req.params.locationId})
                 .then( success => {
 
                     res.status(200).send(
@@ -124,7 +124,7 @@ export const viewLocation = async(req: any, res:any)=>{
         let location_title = query_string.title;
 
         let location_by_title : LocationInterface[] | null =
-            await LocationModel.find({title: new RegExp(location_title,'i'),user:res.tokenData.user.email});
+            await LocationModel.find({name: new RegExp(location_title,'i')});
 
         res.status(200).send(
             new CustomResponse(200,`Note found!`, location_by_title)
