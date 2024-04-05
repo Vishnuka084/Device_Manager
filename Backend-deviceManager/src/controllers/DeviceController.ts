@@ -34,6 +34,47 @@ export const createDevice = async(req: any,  res:any) =>{
 }
 
 export const updateDevice = async(req: any, res:any)=>{
+    try {
+        let device_data = req.body;
+
+        let device_by_id : deviceInterface | null = await DeviceModel.findOne({_id:device_data._id});
+
+        if (device_by_id){
+
+            await DeviceModel.findByIdAndUpdate(
+                {_id:device_data._id},
+                {
+                    serialNo:device_data.serialNo,
+                    type:device_data.type,
+                    image:device_data.image,
+                    status:device_data.status
+                }
+            )
+                .then( success => {
+
+                    res.status(200).send(
+                        new CustomResponse(200,"Device successfully updated!")
+                    )
+
+                })
+                .catch( error => {
+                    res.status(500).send(
+                        new CustomResponse(500,`Error : ${error}`)
+                    )
+                })
+
+        }else {
+            res.status(404).send(
+                new CustomResponse(404,`Note not found!!!`)
+            )
+        }
+
+
+    }catch (error){
+        res.status(500).send(
+            new CustomResponse(500,`Error : ${error}`)
+        )
+    }
 
 }
 export const deleteDevice = async(req: any,  res:any) =>{
