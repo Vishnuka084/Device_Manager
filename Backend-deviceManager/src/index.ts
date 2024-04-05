@@ -7,6 +7,10 @@ import cors from "cors"
 import * as mongoose from "mongoose";
 import * as process from "process";
 
+import UserRoutes from "./routes/UserRoutes";
+import DeviceRoutes from "./routes/DeviceRoutes";
+import LocationRouters from "./routes/LocationRouters";
+
 
 let app = express();
 
@@ -28,6 +32,15 @@ mongoose.connect(process.env.MONGO_URL as string).then( r => {
 }).catch( error => {
     console.log(`DB Connection Error : ${error}`)
 });
+
+
+
+
+app.use('/user', UserRoutes)
+app.use('/device', DeviceRoutes)
+app.use('/location', LocationRouters)
+
+
 
 app.listen(8082, () => {
     console.log("Server start on port 8082")
