@@ -6,6 +6,6 @@ let router = express.Router();
 
 router.post('/save', UserController.createUser)
 
-router.post('/auth', UserController.saveUser)
+router.post('/auth', UserController.authUser)
 
 export default router;
