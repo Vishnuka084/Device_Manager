@@ -15,3 +15,8 @@ export interface  deviceInterface extends mongoose.Document{
     Status: string
 
 }
+
+export interface  UserInterface extends mongoose.Document{
+    name: string,
+    password: string,
+}
