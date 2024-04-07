@@ -67,7 +67,7 @@ function LoginView(prop:Props){
     return(
         <section className={"h-[92vh] bg-[#F5F5F5] flex items-center justify-center"}>
 
-            <div className={"h-[400px] max-w-[400px] w-[92vw] sm:w-[92vw] md:w-[400px] bg-[#EFEFEF] border-2 border-black flex flex-col p-4"}>
+            <div className={"h-[500px] max-w-[650px] w-[92vw] sm:w-[92vw] md:w-[550px] bg-[#EFEFEF] border-2 border-black flex flex-col p-4"}>
 
                 <div className={"mb-auto"}>
 

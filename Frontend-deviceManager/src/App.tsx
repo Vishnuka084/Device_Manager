@@ -27,10 +27,11 @@ function App() {
           <Header log={islog} loginFunction={setIslog}/>
           <Routes>
               <Route path={'/login'} element={<LoginView isLogin={setIslog}/>}/>
-
           </Routes>
 
-      </BrowserRouter>
+    </BrowserRouter>
+
+
   )
 }
 
