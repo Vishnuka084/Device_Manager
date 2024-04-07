@@ -1,7 +1,5 @@
-import Input from "../components/input/input.tsx";
 import {useState} from "react";
-import Swal from "sweetalert2";
-import axios from "axios";
+
 import {useNavigate} from "react-router-dom";
 
 function SignUpView(){
@@ -19,6 +17,18 @@ function SignUpView(){
 
 
     let navigate = useNavigate();
+
+
+    const handleInput = (e:any, type:string):void =>{
+        switch (type){
+            case 'name':
+                setName(e.target.value)
+
+        }
+    }
+
+
+
 
 
 }
