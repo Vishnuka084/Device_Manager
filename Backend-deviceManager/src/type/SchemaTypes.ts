@@ -12,7 +12,8 @@ export interface  deviceInterface extends mongoose.Document{
     serialNo: string,
     type: string,
     image: string,
-    status: string
+    status: string,
+    location: string
 
 }
 

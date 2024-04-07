@@ -8,6 +8,7 @@ let deviceSchema =
     type:{type:String, required: true},
     image:{type:String, required: true},
     status:{type:String, required: true},
+    location:{type:String, required: true}
 
 })
 

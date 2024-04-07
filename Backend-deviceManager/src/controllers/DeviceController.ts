@@ -6,12 +6,14 @@ import {deviceInterface, UserInterface} from "../type/SchemaTypes";
 export const createDevice = async(req: any,  res:any) =>{
     try {
 
+        let fileName:string = req.file.filename;
         let deviceModel = new DeviceModel({
             serialNo:req.body.serialNo,
             title:req.body.title,
             type:req.body.Type,
-            image:req.body.Image,
-            status:req.body.Status
+            image:fileName,
+            status:req.body.Status,
+            location:req.body.location
         });
 
         await deviceModel.save()
