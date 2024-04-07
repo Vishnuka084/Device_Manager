@@ -10,8 +10,16 @@ let emailRegex=/^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 
 let fullNameRegex=/^[a-zA-Z0-9,\s-|_]{2,225}$/;
 
-export const emailValidator =  (email:string):boolean => {
+export const emailValidator = (email:string):boolean => {
     console.log(emailRegex.test(email))
     return emailRegex.test(email);
+}
+
+export const fullNameValidator = (name:string):boolean => {
+    return fullNameRegex.test(name);
+}
+
+export const passwordValidator = (password:string):boolean => {
+    return passwordRegex.test(password);
 }
 
