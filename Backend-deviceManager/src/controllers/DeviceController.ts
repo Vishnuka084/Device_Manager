@@ -115,6 +115,16 @@ export const deleteDevice = async(req: any,  res:any) =>{
 export const viewDevice = async(req: any, res:any)=>{
     try {
 
+        let query_string :any = req.query;
+        let id:string = query_string._id;
+
+        let device_by_id:deviceInterface | null = await 
+            DeviceModel.findOne({serialNo: id})
+
+
+        res.status(200).send(
+            new CustomResponse(200,`device found!`, device_by_id)
+        )
 
        
     }catch (error){
@@ -127,6 +137,10 @@ export const viewDevice = async(req: any, res:any)=>{
 export const viewAllDevice = async(req: any, res:any)=>{
     try {
 
+
+        res.status(200).send(
+            
+        )
 
     }catch (error){
         res.status(500).send(
