@@ -137,9 +137,14 @@ export const viewDevice = async(req: any, res:any)=>{
 export const viewAllDevice = async(req: any, res:any)=>{
     try {
 
+        let list: deviceInterface[] = await DeviceModel.find()
 
         res.status(200).send(
-            
+            new CustomResponse(
+                200,
+                "Device found succesfully.!",
+                list
+            )
         )
 
     }catch (error){
