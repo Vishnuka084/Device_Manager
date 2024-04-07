@@ -1,16 +1,37 @@
 import './App.css'
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
+
+import LoginView from "./view/LoginView.tsx";
+
+import {BrowserRouter,Routes,Route} from "react-router-dom";
+import {useEffect, useState} from "react";
+import Cookies from "js-cookie";
+
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [islog, setIslog] = useState(false)
+
+
+  useEffect(() => {
+        const token = Cookies.get('token');
+
+        if (!token) {
+            setIslog(false)
+        } else {
+            setIslog(true)
+        }
+    }, []);
 
   return (
-    <>
-      
-    </>
+    <BrowserRouter>
+          <Header log={islog} loginFunction={setIslog}/>
+          <Routes>
+              <Route path={'/login'} element={<LoginView isLogin={setIslog}/>}/>
+
+          </Routes>
+
+      </BrowserRouter>
   )
 }
 

@@ -1,5 +1,7 @@
+import Input from "../components/input/input.tsx";
 import {useState} from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
 import {Link, useNavigate} from "react-router-dom";
 
 interface Props {
@@ -29,8 +31,36 @@ function LoginView(prop:Props){
         }
     }
 
-    function loginAction(){
-        
+    function loginAction() {
+
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        };
+
+        let data = JSON.stringify({
+            email: email,
+            password: password
+        })
+
+        axios.post("https://",data,config)
+            .then(res => {
+
+                Cookies.set('token', res.data.data.accessToken, { expires: 7 })
+                Cookies.set('user', JSON.stringify(res.data.data.user), { expires: 7 })
+
+                prop.isLogin(true)
+                navigate('/')
+                window.location.reload();
+                // console.log(res.data)
+
+            })
+            .catch( err => {
+                console.log(err)
+                alert("Login Failed")
+            })
+
     }
 
 
