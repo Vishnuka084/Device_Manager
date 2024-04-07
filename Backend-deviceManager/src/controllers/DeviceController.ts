@@ -154,5 +154,25 @@ export const viewAllDevice = async(req: any, res:any)=>{
             new CustomResponse(500,`Error : ${error}`)
         )
     }
+}
 
+
+export const viewAllDevice_Location = async(req: any, res:any)=>{
+
+    try{
+        let list: deviceInterface[] = await DeviceModel.find({req:req.body.location});
+        res.status(200).send(
+            new CustomResponse(
+                200,
+                "Device Locayion found successfully.",
+                list
+            )
+        )
+
+
+    }catch(error){
+        res.status(500).send(
+            new CustomResponse(500,`Error : ${error}`)
+        )
+    }
 }
