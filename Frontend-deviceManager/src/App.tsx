@@ -7,6 +7,7 @@ import SignUpView from "./view/SignUpView.tsx";
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 import {useEffect, useState} from "react";
 import Cookies from "js-cookie";
+import DashBoardView from "./view/DashBoardView.tsx";
 
 
 
@@ -29,8 +30,9 @@ function App() {
           <Header log={islog} loginFunction={setIslog}/>
           <Routes>
               <Route path={'/login'} element={<LoginView isLogin={setIslog}/>}/>
-              <Route path={'/'} element={<LoginView isLogin={setIslog}/>}/>
               <Route path={'/signup'} element={<SignUpView/>}/>
+              <Route path={'/add'} element={<DashBoardView/>}/>
+
 
 
           </Routes>

@@ -15,7 +15,6 @@ function LoginView(prop:Props){
     const [password, setPassword] = useState("")
 
     const [isShow, setIsShow] = useState(false)
-
     const navigate = useNavigate();
 
 
@@ -44,7 +43,7 @@ function LoginView(prop:Props){
             password: password
         })
 
-        axios.post("https://",data,config)
+        axios.post("https://localhost:",data,config)
             .then(res => {
 
                 Cookies.set('token', res.data.data.accessToken, { expires: 7 })
@@ -71,11 +70,11 @@ function LoginView(prop:Props){
 
                 <div className={"mb-auto"}>
 
-                    <div className={"font-sans text-4xl font-[700] text-center"}>
-                        WELCOME
+                    <div className={"font-Zet text-4xl font-[450] text-center"}>
+                       WELCOME
                     </div>
 
-                    <div className={"font-sans text-md font-[700] text-center"}>
+                    <div className={"font-sans text-xl font-[800] text-center"}>
                         to
                     </div>
 
